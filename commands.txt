@@ -1,1 +1,11 @@
-$ docker compose run --rm app sh -c "python manage.py startapp core"
+docker compose build
+docker compose up
+docker compose down
+docker-compose run --rm app sh -c "django-admin startproject app ."
+docker compose run --rm app sh -c "python manage.py test"
+docker compose run --rm app sh -c "python manage.py startapp core"
+docker volume ls
+docker volume rm recipe-app-api_postgres_data
+
+winpty docker compose run --rm app sh -c "python manage.py createsuperuser"
+
